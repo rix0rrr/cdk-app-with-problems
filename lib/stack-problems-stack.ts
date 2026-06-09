@@ -1,9 +1,9 @@
-import { Bucket } from 'aws-cdk-lib/aws-s3';
 import * as cdk from 'aws-cdk-lib/core';
 import { Construct } from 'constructs';
 import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 import { ExitOnStartup } from './ecs-exit-on-startup/ecs-exit-on-startup';
+import { InvalidResourceProps } from './invalid-resource-props/invalid-resource-props';
 
 export class StackProblemsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -23,6 +23,7 @@ export class StackProblemsStack extends cdk.Stack {
     //////////////////////////////////////////////////////////////////////
     // Introduce failures here
     new ExitOnStartup(this, 'ExitOnStartup', { cluster });
+    new InvalidResourceProps(this, 'ResourceProps');
   }
 }
 
