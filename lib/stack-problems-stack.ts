@@ -22,7 +22,7 @@ export class StackProblemsStack extends cdk.Stack {
 
     //////////////////////////////////////////////////////////////////////
     // Introduce failures here
-    new ExitOnStartup(this, 'ExitOnStartup', { cluster });
+    // new ExitOnStartup(this, 'ExitOnStartup', { cluster });
     new InvalidResourceProps(this, 'ResourceProps');
   }
 }
