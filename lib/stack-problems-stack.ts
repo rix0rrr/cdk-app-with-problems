@@ -4,6 +4,7 @@ import * as ecs from 'aws-cdk-lib/aws-ecs';
 import * as ec2 from 'aws-cdk-lib/aws-ec2';
 // import { ExitOnStartup } from './scenarios/ecs-exit-on-startup/ecs-exit-on-startup';
 import { InvalidResourceProps } from './scenarios/invalid-resource-props/invalid-resource-props';
+// import { CircularDependencies } from './scenarios/circular-dependencies/circular-dependencies';
 
 export class StackProblemsStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -24,6 +25,7 @@ export class StackProblemsStack extends cdk.Stack {
     // Introduce failures here
     // new ExitOnStartup(this, 'ExitOnStartup', { cluster });
     new InvalidResourceProps(this, 'ResourceProps');
+    // new CircularDependencies(this, 'CircularDeps', { vpc });
   }
 }
 
